@@ -16,26 +16,28 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">PersonalEconomy</a>
+        <a class="navbar-brand" href="/app/">PersonalEconomy</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Inicio
-                        <!--<span class="sr-only">(current)</span>-->
-                    </a>
+                <li class="nav-item">
+                    <a class="nav-link {% block inicio_current %}{%endblock%}" 
+                    href="/app/">Inicio </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Usuarios</a>
+                    <a class="nav-link {% block u_c %}{%endblock%}" 
+                    href="/app/usuarios">Usuarios </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Ingresos</a>
+                    <a class="nav-link {% block ingresos_current %}{%endblock%}" 
+                    href="/app/ingresos">Ingresos </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Gastos</a>
+                    <a class="nav-link {% block gastos_current %}{%endblock%}" 
+                    href="/app/gastos">Gastos </a>
                 </li>
             </ul>
         </div>
