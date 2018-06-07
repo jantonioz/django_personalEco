@@ -1,0 +1,65 @@
+{% extends '../base.html' %} {% block content %}
+
+<div class="container">
+    <h1>{{usuario.nombre}}</h1>
+
+
+    <style>
+        tbody>tr:hover{ 
+            background: #0659f350;
+        }
+    </style>
+    <div class="container">
+
+        <h3>Ingresos</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Detalle</th>
+                    <th scope="col">Creado</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in ingresos %}
+                    <tr>
+                        <th>{{i.pk}}</th>
+                        <th>{{i.total}}</th>
+                        <th>{{i.descripcion}}</th>
+                        <th>{{i.fecha_hora}}</th>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+
+        <br><br>
+        <h3>Gastos</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Detalle</th>
+                    <th scope="col">Creado</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for g in gastos %}
+                    <tr>
+                        <th>{{g.pk}}</th>
+                        <th>{{g.total}}</th>
+                        <th>{{g.descripcion}}</th>
+                        <th>{{g.fecha_hora}}</th>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+
+{% endblock %}

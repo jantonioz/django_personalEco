@@ -1,0 +1,42 @@
+{% extends '../base.html' %} {% block content %}
+
+<div class="container">
+    <h1>Usuarios</h1>
+
+
+    <style>
+        tbody>tr:hover{ 
+            background: #0659f350;
+        }
+    </style>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Economia</th>
+                    <th scope="col">Ingresos (total)</th>
+                    <th scope="col">Gastos (total)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for u in usuarios %}
+                    <tr>
+                        <th>{{u.pk}}</th>
+                        <th>{{u.nombre}}</th>
+                        <th><a href="/app/usuario/{{u.username}}">{{u.username}}</a></th>
+                        <th>{{u.economia}}</th>
+                        <th>{{u.totalIngresos}}</th>
+                        <th>{{u.totalGastos}}</th>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+{% endblock %}
