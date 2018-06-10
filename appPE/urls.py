@@ -13,6 +13,10 @@ urlpatterns = [
     path('ingresos', views.IngView.index, name="ingresos_index"),
 
     ## Gasto
-    path('gastos', views.GastoView.index, name="gastos_index")
+    path('gastos', views.GastoView.index, name="gastos_index"),
+
+    ## Android
+    path('androidLogin', views.androidLogin, name="android_login_user"),
+    path('androidCSRF', views.androidGetCSRF, name="androidCSRF"),
 
 ]

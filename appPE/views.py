@@ -1,7 +1,28 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 from .models import Usuario, Ingreso, Gasto
+from django.views.decorators.csrf import csrf_exempt
 
-# Create your views here.
+
+
+def androidGetCSRF(request):
+    return render(request, 'Android/csrf.html')
+
+
+@csrf_exempt
+def androidLogin(request):
+    if request.method == 'POST':
+        usr = request.POST.get('usr')
+        pwd = request.POST.get('pass')
+
+        try:
+            u = Usuario.objects.get(username=usr, password = pwd)
+            return HttpResponse( u.nombre, content_type="text/plain; charset=utf-8")
+        except Exception:
+            return HttpResponse(pwd, content_type="text/plain")
+    return HttpResponse( "", content_type="text/plain")
+
+
+
 def index(request):
     top3_usrs = sorted(Usuario.objects.all(), key=lambda a : a.economia())[::-1]
     top3_usrs = top3_usrs[:3]
