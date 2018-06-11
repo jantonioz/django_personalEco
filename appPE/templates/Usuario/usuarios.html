@@ -1,49 +1,62 @@
-{% extends '../base.html' %} 
-
-
+{% extends '../base.html' %}
 {% block u_c %}
-active
+    active
 {% endblock %}
-
 {% block content %}
-
-<div class="container">
-    <h1>Usuarios</h1>
-
-
-    <style>
-        tbody>tr:hover{ 
-            background: #0659f350;
-        }
-    </style>
     <div class="container">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Username</th>
-                    <th scope="col">Economia</th>
-                    <th scope="col">Ingresos (total)</th>
-                    <th scope="col">Gastos (total)</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for u in usuarios %}
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h1>Usuarios</h1>
+                </div>
+                <div class="col">
+                    <form class="form-inline" autocomplete="off">
+                        <input class="form-control" placeholder="Nombre" aria-label="Search" name="nombre">
+                        <button class="btn btn-outline-success my-2 my-sm-0">&zwnj;<i class="fas fa-search fa-lg"></i></button>
+                    </form>
+                </div>
+                <div class="col">
+                    <form class="form-inline" autocomplete="off">
+                        <input class="form-control" placeholder="Username" aria-label="Search" name="username">
+                        <button class="btn btn-outline-success my-2 my-sm-0">Buscar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <style>
+        tbody>tr:hover{
+        background: #0659f350;
+        }
+        </style>
+        <div class="container">
+            <table class="table">
+                <thead class="thead-light">
                     <tr>
-                        <th>{{u.pk}}</th>
-                        <th>{{u.nombre}}</th>
-                        <th><a href="/app/usuario/{{u.username}}">{{u.username}}</a></th>
-                        <th>{{u.economia}}</th>
-                        <th>{{u.totalIngresos}}</th>
-                        <th>{{u.totalGastos}}</th>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Economia</th>
+                        <th scope="col">Ingresos (total)</th>
+                        <th scope="col">Gastos (total)</th>
                     </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {% for u in usuarios %}
+                        <tr>
+                            <th>{{u.pk}}</th>
+                            <th>{{u.nombre}}</th>
+                            <th><a href="/app/usuario/{{u.username}}">{{u.username}}</a></th>
+                            <th>{{u.economia}}</th>
+                            <th>{{u.totalIngresos}}</th>
+                            <th>{{u.totalGastos}}</th>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
-
-</div>
-
-
+    <script type="text/javascript" charset="utf-8">
+    var xhttp = new XMLHttpRequest();
+    </script>
 {% endblock %}

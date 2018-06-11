@@ -8,7 +8,7 @@ active
 {% block content %}
 
 <div class="container">
-    <h1>{{usuario.nombre}}</h1>
+    <h1>{{usuario.nombre}} <i class="fas fa-user"></i> </h1>
 
 
     <style>
@@ -20,7 +20,7 @@ active
 
         <h3>Ingresos</h3>
         <table class="table">
-            <thead>
+            <thead class="thead-light">
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Total</th>
@@ -44,7 +44,7 @@ active
         <br><br>
         <h3>Gastos</h3>
         <table class="table">
-            <thead>
+            <thead class="thead-light">
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Total</th>

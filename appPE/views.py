@@ -40,8 +40,15 @@ class IngView():
 
 class UsrView():
     def usuarios(request):
-        return render(request, 'Usuario/usuarios.html', 
-        {'usuarios': Usuario.objects.all()})
+        usrs = Usuario.objects.all()
+
+        if request.GET.get('nombre')!= None:
+            usrs = Usuario.objects.filter(nombre__contains = request.GET['nombre'])
+
+        elif request.GET.get('username') != None: 
+            usrs = Usuario.objects.filter(username__contains = request.GET['username'])
+
+        return render(request, 'Usuario/usuarios.html', {'usuarios': usrs })
 
     def detalleUsuario(request, username):
         u = Usuario.objects.get(username=username)

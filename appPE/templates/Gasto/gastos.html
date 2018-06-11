@@ -17,12 +17,13 @@ active
     </style>
     <div class="container">
         <table class="table">
-            <thead>
+            <thead class="thead-light">
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Total</th>
                     <th scope="col">Descripcion</th>
                     <th scope="col">Usuario</th>
+                    <th scope="col">Fecha</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,6 +33,7 @@ active
                         <th>{{e.total}}</th>
                         <th>{{e.descripcion}}</th>
                         <th><a href="/app/usuario/{{e.usuario.username}}">{{e.usuario.username}}</a></th>
+                        <th>{{e.fecha_hora}}</th>
                     </tr>
                 {% endfor %}
             </tbody>
